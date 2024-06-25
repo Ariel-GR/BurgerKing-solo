@@ -24,8 +24,6 @@ public class Sistema implements Serializable {
     private ArrayList<Persona> empleado;
     private ArrayList<Combos> combo;
 
-    
-
     public Sistema() {
         empleado = new ArrayList<>();
         combo = new ArrayList<>();

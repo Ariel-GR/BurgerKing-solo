@@ -72,11 +72,11 @@ public class SistemaPedidos implements Serializable {
 
         EntradaSalida.mostrarTexto("\t\tCOMANDAS PARA COCINAR\n");
 
-        consultarEstado("preparando",sistema);
+        consultarEstado("preparando", sistema);
 
         while (EntradaSalida.siNo("para ACTULIZAR el estado de una comanda ingrese si/no")) {
             int nro = EntradaSalida.leerNro("Ingrese el NRO DE COMANDA para actualizar su estado: ");
-            if (nro < sistema.getCombo().size() && nro >=0) {
+            if (nro < sistema.getCombo().size() && nro >= 0) {
                 if (EntradaSalida.siNo("Desa ENTREGAR la comanda nro " + nro + "? si/no")) {
                     sistema.getCombo().get(nro).setEstado("LISTO");
                 } else if (EntradaSalida.siNo("Desa CANCELAR la comanda nro " + nro + "? si/no")) {
@@ -84,21 +84,26 @@ public class SistemaPedidos implements Serializable {
                 } else {
                     EntradaSalida.mostrarTexto("\t\t***no se realizaron cambios***");
                 }
-            }else{
+            } else {
                 EntradaSalida.mostrarTexto("no se encontro el nro de comanda ingresado");
             }
+            try {
+                sistema.serializar("base_empleados.txt");
 
+            } catch (IOException ex) {
+                Logger.getLogger(Vendedor.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        
+
         EntradaSalida.mostrarTexto("\t\tCOMANDAS LISTA PARA ENTRAGAR\n");
         consultarEstado("LISTO", sistema);
-        
+
         EntradaSalida.mostrarTexto("\t\tCOMANDAS CANCELADAS\n");
         consultarEstado("CANCELADO", sistema);
 
     }
 
-    private void consultarEstado(String estado,Sistema sistema) {
+    private void consultarEstado(String estado, Sistema sistema) {
         for (int i = 0; i < sistema.getCombo().size(); i++) {
 
             if (sistema.getCombo().get(i).getEstado().equals(estado)) {
