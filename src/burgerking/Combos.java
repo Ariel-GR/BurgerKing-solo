@@ -5,6 +5,7 @@
 package burgerking;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 /**
  *
@@ -13,12 +14,14 @@ import java.io.Serializable;
 public class Combos implements Serializable{
 
     private int nroPedido;
+    private LocalDate fecha;
     private String tipoCombo;
     private String bebidaYpapas;
     private Double precio;
     private String estado;
 
     public Combos(int nroPedido, String tipoCombo, String bebidaYpapas, Double precio, String estado) {
+        this.fecha = LocalDate.now();
         this.nroPedido = nroPedido;
         this.tipoCombo = tipoCombo;
         this.bebidaYpapas = bebidaYpapas;
@@ -26,6 +29,12 @@ public class Combos implements Serializable{
         this.estado = estado;
     }
 
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+
+    
     public int getNroPedido() {
         return nroPedido;
     }

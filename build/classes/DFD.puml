@@ -23,6 +23,7 @@ class Cocineros {
 
 class Combos {
     - int nroPedido
+    - int localDate
     - String tipoCombo
     - String tamaño
     - double precio

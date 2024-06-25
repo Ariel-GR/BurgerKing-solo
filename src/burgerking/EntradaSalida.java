@@ -95,6 +95,7 @@ public class EntradaSalida {
     public static void ticket(Combos comanda){
     
         mostrarTexto("====TICKET===="
+                    +"\nFECHA: "+ comanda.getFecha()
                     +"\nCOMBO: "+ comanda.getTipoCombo()
                     +"\nBEBIDA Y PAPAS: "+comanda.getBebidaYpapas()
                     +"\nESTADO: "+comanda.getEstado());
