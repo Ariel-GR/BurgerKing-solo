@@ -61,7 +61,7 @@ public class Inspectores extends Persona {
                     case 4:
                         int cancelados = 0;
                         for (int i = 0; i < sistema.getCombo().size(); i++) {
-                            if (sistema.getCombo().get(i).getEstado().equals("LISTO")) {
+                            if (sistema.getCombo().get(i).getEstado().equals("CANCELADO")) {
                                 cancelados++;
                             }
                         }
