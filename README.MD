@@ -26,6 +26,9 @@ Este proyecto consiste en desarrollar un sistema para gestionar la información 
     - Gerentes: administran todo.
     - Inspectores: obtienen listados de ventas.
 
+## Diagrama de clases
+![Diagrama de Clases](DFD.png)
+
 ## Implementación
 
 - **Paradigmas de Programación**:
