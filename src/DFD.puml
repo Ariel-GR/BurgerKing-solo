@@ -1,0 +1,116 @@
+@startuml
+
+class Persona {
+    - String user
+    - String password
+    + String getUser()
+    + String getPassword()
+    + void setUser(String user)
+    + void setPassword(String password)
+    {abstract} + boolean trabajar(Sistema sistema)
+    + boolean encontrarCredenciales(String credenciales)
+}
+
+class Administrador {
+    + Administrador(String user, String password)
+    + boolean trabajar(Sistema sistema)
+}
+
+class Cocineros {
+    + Cocineros(String user, String password)
+    + boolean trabajar(Sistema sistema)
+}
+
+class Combos {
+    - int nroPedido
+    - String tipoCombo
+    - String tamaño
+    - double precio
+    - String estado
+    + Combos(int nroPedido, String tipoCombo, String tamaño, double precio, String estado)
+    + int getNroPedido()
+    + String getTipoCombo()
+    + String getTamaño()
+    + double getPrecio()
+    + String getEstado()
+    + void setEstado(String estado)
+}
+
+class ControlIngreso {
+    + void ingresar()
+}
+
+class EntradaSalida {
+    + static String leerString(String texto)
+    + static int leerNro(String texto)
+    + static boolean siNo(String texto)
+    + static void mostrarTexto(String texto)
+    + static void mostrarTexto(int texto)
+    + static void mostrarTexto(double texto)
+    + static int menuAlta()
+    + static int menuGerentes()
+    + static int menuCombo()
+    + static int menuTamanio(String texto)
+    + static void ticket(Combos comanda)
+    + static int menuInspector()
+}
+
+class Gerentes {
+    + Gerentes(String user, String password)
+    + boolean trabajar(Sistema sistema)
+}
+
+class Inspectores {
+    + Inspectores(String user, String password)
+    + boolean trabajar(Sistema sistema)
+}
+
+class Main {
+    + void main(String[] args)
+}
+
+class Sistema {
+    - ArrayList<Persona> empleado
+    - ArrayList<Combos> combo
+    + Sistema()
+    + ArrayList<Persona> getEmpleado()
+    + void setEmpleado(ArrayList<Persona> empleado)
+    + ArrayList<Combos> getCombo()
+    + void setCombo(ArrayList<Combos> combo)
+    + Sistema deSerializar(String a)
+    + void serializar(String a)
+    + Persona buscarUsuario(String credenciales)
+    + static boolean validarIngreso(String user, String pass)
+    + void listaPorRoles(String referencia)
+    + String buscarPorRol(String usuario)
+    + void modificarRol(String user, String rol)
+    + boolean altaUsuario()
+}
+
+class SistemaPedidos {
+    + void tomarPedido(Sistema sistema)
+    + void estadoPedidos(Sistema sistema)
+    - void crearPedido(String tipoDeCombo, Sistema sistema)
+    - void consultarEstado(String estado, Sistema sistema)
+}
+
+class Vendedor {
+    + Vendedor(String user, String password)
+    + boolean trabajar(Sistema sistema)
+}
+
+Persona <|-- Administrador
+Persona <|-- Cocineros
+Persona <|-- Gerentes
+Persona <|-- Inspectores
+Persona <|-- Vendedor
+
+ControlIngreso --> Sistema
+
+Sistema <-- Combos
+Sistema <-- Persona
+Sistema <-- SistemaPedidos
+
+
+
+@enduml
