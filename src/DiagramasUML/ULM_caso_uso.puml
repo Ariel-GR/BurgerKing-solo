@@ -1,0 +1,37 @@
+@startuml
+left to right direction
+actor Usuario as U
+
+
+rectangle "Sistema" {
+    U --> (Ingresar)
+    
+    (SistemaPedidos)
+    (Modificar rol)
+    (Alta de usuario)
+    (Lista por roles)
+    
+}
+rectangle "Persona" {
+    (Lista por roles) -- (Administrador)
+    (Lista por roles) -- (Gerentes)
+    (Lista por roles) -- (Inspectores)
+    
+    (Alta de usuario) -- (Administrador) 
+    (Alta de usuario) -- (Gerentes)
+
+    (Modificar rol) -- (Gerentes)
+
+    (SistemaPedidos) -- (Vendedor)
+    (SistemaPedidos) -- (Cocineros)
+
+}
+
+(Ingresar) --> (ControlIngreso)
+(ControlIngreso) --> (Trabajar)
+(Trabajar) -- (Administrador)
+(Trabajar) -- (Cocineros)
+(Trabajar) -- (Gerentes)
+(Trabajar) -- (Inspectores)
+(Trabajar) -- (Vendedor)
+@enduml

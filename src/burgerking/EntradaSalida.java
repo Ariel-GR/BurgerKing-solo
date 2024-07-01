@@ -75,7 +75,7 @@ public class EntradaSalida {
     
     public static int menuCombo(){
         return EntradaSalida.leerNro(
-                "\tCOMBOS DISPONIBLES\n"
+                "\tTIPO DE HAMBURGUESA\n"
                 + "1 - SIMPLE\n"
                 + "2 - DOBLE\n"
                 + "3 - TRIPLE\n"
@@ -96,7 +96,7 @@ public class EntradaSalida {
     
         mostrarTexto("====TICKET===="
                     +"\nFECHA: "+ comanda.getFecha()
-                    +"\nCOMBO: "+ comanda.getTipoCombo()
+                    +"\nHAMBURGUESA COMBO: "+ comanda.getTipoCombo()
                     +"\nBEBIDA Y PAPAS: "+comanda.getBebidaYpapas()
                     +"\nESTADO: "+comanda.getEstado());
         mostrarTexto("====PRECIO====");
